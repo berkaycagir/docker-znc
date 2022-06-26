@@ -69,6 +69,7 @@ RUN \
   ./configure \
     --build=$CBUILD \
     --enable-cyrus \
+    --enable-debug \
     --enable-perl \
     --enable-python \
     --enable-swig \
@@ -95,10 +96,7 @@ RUN \
 FROM ghcr.io/linuxserver/baseimage-alpine:3.15
 
 # set version label
-ARG BUILD_DATE
-ARG VERSION
-LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="sparklyballs"
+ENV ZNC_DEBUG=""
 
 # copy files from build stage
 COPY --from=buildstage /tmp/znc/usr/ /usr/
