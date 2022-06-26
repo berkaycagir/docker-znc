@@ -27,7 +27,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: docker-znc/Dockerfile
           platforms: linux/amd64
           push: true
           tags: berkaycagir/docker-znc:latest
