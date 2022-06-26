@@ -18,10 +18,8 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ghcr.io/berkaycagir/docker-znc
-          flavor: |
-            latest=auto
           tags: |
-            type=ref,event=tag
+            latest
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
