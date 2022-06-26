@@ -29,4 +29,6 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: berkaycagir/docker-znc:latest
+          tags: ghcr.io/berkaycagir/docker-znc:latest
+          cache-from: type=registry,ref=ghcr.io/berkaycagir/docker-znc:buildcache
+          cache-to: type=registry,ref=ghcr.io/berkaycagir/docker-znc:buildcache,mode=max
