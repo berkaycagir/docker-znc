@@ -96,6 +96,7 @@ RUN \
 FROM ghcr.io/linuxserver/baseimage-alpine:3.15
 
 # set version label
+LABEL org.opencontainers.image.version="latest"
 ENV ZNC_DEBUG=""
 
 # copy files from build stage
