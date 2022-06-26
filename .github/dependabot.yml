@@ -1,6 +1,4 @@
 version: 2
-name: Dependabot
-
 updates:
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
