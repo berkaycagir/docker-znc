@@ -69,7 +69,6 @@ RUN \
   ./configure \
     --build=$CBUILD \
     --enable-cyrus \
-    --enable-debug \
     --enable-perl \
     --enable-python \
     --enable-swig \
