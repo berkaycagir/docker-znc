@@ -16,5 +16,5 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           container: docker-znc
-          dry-run: true
+          dry-run: false
           untagged: true
