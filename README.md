@@ -2,7 +2,7 @@
 
 [![Deploy](https://github.com/berkaycagir/docker-znc/actions/workflows/deploy.yml/badge.svg)](https://github.com/berkaycagir/docker-znc/actions/workflows/deploy.yml)
 [![Deploy debug](https://github.com/berkaycagir/docker-znc/actions/workflows/deploy-debug.yml/badge.svg)](https://github.com/berkaycagir/docker-znc/actions/workflows/deploy-debug.yml)
-[![Deploy debug](https://github.com/berkaycagir/docker-znc/actions/workflows/deploy-debug.yml/badge.svg)](https://github.com/berkaycagir/docker-znc/actions/workflows/deploy-debug.yml)
+[![Cleanup](https://github.com/berkaycagir/docker-znc/actions/workflows/cleanup.yml/badge.svg)](https://github.com/berkaycagir/docker-znc/actions/workflows/cleanup.yml)
 
 This repo/image is a fork of [linuxserver/docker-znc](https://github.com/linuxserver/docker-znc) that enables debugging via an env variable. All the usage and features are the same.
 
