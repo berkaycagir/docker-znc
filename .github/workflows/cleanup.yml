@@ -1,0 +1,17 @@
+name: Cleanup
+
+on:
+  schedule:
+    - cron: '7 11 * * *'
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prune
+        uses: vlaurin/action-ghcr-prune@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          container: docker-znc
+          dry-run: true
+          untagged: true
