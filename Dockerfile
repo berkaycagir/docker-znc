@@ -9,7 +9,7 @@ RUN \
   apk add -U --update --no-cache \
     autoconf \
     automake \
-    boost1.79-locale \
+    boost1.77-locale \
     c-ares-dev \
     curl \
     cyrus-sasl-dev \
