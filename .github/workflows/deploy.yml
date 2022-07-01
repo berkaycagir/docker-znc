@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - 'main'
-  schedule:
-    - cron: '38 10 * * *'
 
 jobs:
   docker:
@@ -38,6 +36,8 @@ jobs:
         with:
           context: .
           platforms: linux/amd64
+          no-cache: true
+          pull: true
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

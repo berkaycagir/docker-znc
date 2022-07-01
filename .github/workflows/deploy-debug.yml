@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - 'main'
-  schedule:
-    - cron: '27 10 * * *'
 
 jobs:
   docker:
@@ -39,6 +37,8 @@ jobs:
           context: .
           file: Dockerfile.debug
           platforms: linux/amd64
+          no-cache: true
+          pull: true
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
