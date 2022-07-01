@@ -9,7 +9,7 @@ RUN \
   apk add -U --update --no-cache \
     autoconf \
     automake \
-    boost1.77-locale \
+    boost-dev \
     c-ares-dev \
     curl \
     cyrus-sasl-dev \
@@ -71,7 +71,6 @@ RUN \
     --build=$CBUILD \
     --enable-cyrus \
     --enable-charset \
-    --enable-i18n \
     --enable-perl \
     --enable-python \
     --enable-swig \
