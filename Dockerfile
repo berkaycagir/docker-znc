@@ -68,7 +68,7 @@ RUN \
   cd /tmp/znc && \
   export CFLAGS="$CFLAGS -D_GNU_SOURCE" && \
   ./configure.sh \
-    --build=$CBUILD \
+    # --build=$CBUILD \
     --enable-cyrus \
     --enable-charset \
     --enable-i18n \
@@ -76,7 +76,7 @@ RUN \
     --enable-python \
     --enable-swig \
     --enable-tcl \
-    --host=$CHOST \
+    # --host=$CHOST \
     --infodir=/usr/share/info \
     --localstatedir=/var \
     --mandir=/usr/share/man \
