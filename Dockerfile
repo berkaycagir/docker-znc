@@ -67,10 +67,11 @@ RUN \
     /tmp/znc/modules --strip-components=1 && \
   cd /tmp/znc && \
   export CFLAGS="$CFLAGS -D_GNU_SOURCE" && \
-  ./configure \
+  ./configure.sh \
     --build=$CBUILD \
     --enable-cyrus \
     --enable-charset \
+    --enable-i18n \
     --enable-perl \
     --enable-python \
     --enable-swig \
