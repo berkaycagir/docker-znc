@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-alpine:3.15 as buildstage
+FROM ghcr.io/linuxserver/baseimage-alpine:3.16-version-b612671e as buildstage
 ############## build stage ##############
 
 # package version
@@ -96,7 +96,7 @@ RUN \
     >> /tmp/znc/packages
 ############## runtime stage ##############
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.15
+FROM ghcr.io/linuxserver/baseimage-alpine:3.16-version-b612671e
 
 # set version label
 LABEL org.opencontainers.image.version="latest"
