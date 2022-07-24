@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Prune
-        uses: vlaurin/action-ghcr-prune@main
+        uses: vlaurin/action-ghcr-prune@v0.4.0
         with:
           token: ${{ secrets.PAT }}
           container: docker-znc
