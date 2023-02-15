@@ -13,6 +13,8 @@ RUN \
     automake \
     boost-dev \
     c-ares-dev \
+    cmake \
+    curl \
     cyrus-sasl-dev \
     g++ \
     gcc \
