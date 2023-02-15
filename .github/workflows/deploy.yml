@@ -42,6 +42,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
   deploy-debug:
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       -
@@ -78,6 +79,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
   cleanup:
+    needs: deploy-debug
     runs-on: ubuntu-latest
     steps:
       - name: Prune
