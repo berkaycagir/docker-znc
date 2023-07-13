@@ -76,7 +76,7 @@ RUN \
     --enable-i18n \
     --enable-perl \
     --enable-python \
-    --enable-swig \
+    # --enable-swig \
     --enable-tcl \
     # --host=$CHOST \
     --infodir=/usr/share/info \
