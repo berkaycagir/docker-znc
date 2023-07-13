@@ -11,7 +11,7 @@ RUN \
   apk add -U --update --no-cache \
     autoconf \
     automake \
-    boost-dev \
+    # boost-dev \
     build-base \
     c-ares-dev \
     cmake \
