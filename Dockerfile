@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.17 as buildstage
+FROM ghcr.io/linuxserver/baseimage-alpine:3.18 as buildstage
 ############## build stage ##############
 
 # package version
@@ -12,21 +12,18 @@ RUN \
     autoconf \
     automake \
     boost-dev \
+    build-base \
     c-ares-dev \
     cmake \
     curl \
     cyrus-sasl-dev \
-    g++ \
-    gcc \
     gettext-dev \
     git \
     icu-dev \
-    make \
     openssl-dev \
     perl-dev \
     python3-dev \
     swig \
-    tar \
     tcl-dev
 
 RUN \
@@ -97,7 +94,7 @@ RUN \
     >> /tmp/znc/packages
 ############## runtime stage ##############
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.17
+FROM ghcr.io/linuxserver/baseimage-alpine:3.18
 
 # set version label
 LABEL org.opencontainers.image.version="latest"
