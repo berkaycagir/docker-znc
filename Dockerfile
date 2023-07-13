@@ -12,18 +12,21 @@ RUN \
     autoconf \
     automake \
     boost-dev \
-    # build-base \
     c-ares-dev \
     cmake \
     curl \
     cyrus-sasl-dev \
+    g++ \
+    gcc \
     gettext-dev \
     git \
     icu-dev \
+    make \
     openssl-dev \
     perl-dev \
     python3-dev \
     swig \
+    tar \
     tcl-dev
 
 RUN \
