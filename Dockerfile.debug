@@ -80,7 +80,7 @@ RUN \
     -DWANT_CYRUS=yes \
     -DWANT_ICU=yes \
     -DWANT_I18N=yes \
-    -DDebug=yes && \
+    -DCMAKE_BUILD_TYPE=Debug && \
   make && \
   make DESTDIR=/tmp/znc install
 
