@@ -79,7 +79,8 @@ RUN \
     -DWANT_TCL=yes \
     -DWANT_CYRUS=yes \
     -DWANT_ICU=yes \
-    -DWANT_I18N=yes && \
+    -DWANT_I18N=yes \
+    -DCMAKE_BUILD_TYPE=Release && \
   make && \
   make DESTDIR=/tmp/znc install
 
