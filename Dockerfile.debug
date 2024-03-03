@@ -9,9 +9,11 @@ ARG ZNC_RELEASE
 RUN \
   echo "**** install build packages ****" && \
   apk add -U --update --no-cache \
+    argon2-dev \
     autoconf \
     automake \
     boost-dev \
+    build-base \
     c-ares-dev \
     cmake \
     curl \
@@ -27,7 +29,10 @@ RUN \
     python3-dev \
     swig \
     tar \
-    tcl-dev
+    tcl-dev && \
+  python3 -m venv /lsiopy && \
+  pip install -U --no-cache-dir pip setuptools && \
+  pip install -U --no-cache-dir cmake
 
 RUN \
   echo "**** compile znc ****" && \
@@ -37,60 +42,53 @@ RUN \
   fi && \
   mkdir -p \
     /tmp/znc && \
+  git clone --branch "${ZNC_RELEASE}" --depth 1 \
+    --recurse-submodules \
+    https://github.com/znc/znc.git \
+    /tmp/znc && \
   curl -o \
-  /tmp/znc-src.tar.gz -L \
-    "https://znc.in/releases/archive/${ZNC_RELEASE}.tar.gz" && \
-  tar xf \
-  /tmp/znc-src.tar.gz -C \
-    /tmp/znc --strip-components=1 && \
-  curl -o \
-  /tmp/playback.tar.gz -L \
+    /tmp/playback.tar.gz -L \
     https://github.com/jpnurmi/znc-playback/archive/master.tar.gz && \
   tar xf \
-  /tmp/playback.tar.gz -C \
+    /tmp/playback.tar.gz -C \
     /tmp/znc/modules --strip-components=1 && \
   curl -o \
-  /tmp/znc-push.tar.gz -L \
+    /tmp/znc-push.tar.gz -L \
     https://github.com/jreese/znc-push/archive/master.tar.gz && \
   tar xf \
-  /tmp/znc-push.tar.gz -C \
+    /tmp/znc-push.tar.gz -C \
     /tmp/znc/modules --strip-components=1 && \
   curl -o \
-  /tmp/znc-clientbuffer.tar.gz -L \
+    /tmp/znc-clientbuffer.tar.gz -L \
     https://github.com/CyberShadow/znc-clientbuffer/archive/master.tar.gz && \
   tar xf \
-  /tmp/znc-clientbuffer.tar.gz -C \
+    /tmp/znc-clientbuffer.tar.gz -C \
     /tmp/znc/modules --strip-components=1 && \
   curl -o \
-  /tmp/znc-palaver.tar.gz -L \
+    /tmp/znc-palaver.tar.gz -L \
     https://github.com/cocodelabs/znc-palaver/archive/master.tar.gz && \
   tar xf \
-  /tmp/znc-palaver.tar.gz -C \
+    /tmp/znc-palaver.tar.gz -C \
     /tmp/znc/modules --strip-components=1 && \
   cd /tmp/znc && \
-  export CFLAGS="$CFLAGS -D_GNU_SOURCE" && \
-  ./configure.sh \
-    # --build=$CBUILD \
-    --enable-cyrus \
-    --enable-charset \
-    --enable-debug \
-    --enable-i18n \
-    --enable-perl \
-    --enable-python \
-    # --enable-swig \
-    --enable-tcl \
-    # --host=$CHOST \
-    --infodir=/usr/share/info \
-    --localstatedir=/var \
-    --mandir=/usr/share/man \
-    --prefix=/usr \
-    --sysconfdir=/etc && \
+  mkdir -p build && \
+  cd build && \
+  cmake .. \
+    -DWANT_PYTHON=yes \
+    -DWANT_PERL=yes \
+    -DWANT_TCL=yes \
+    -DWANT_CYRUS=yes \
+    -DWANT_ICU=yes \
+    -DWANT_I18N=yes && \
+    -DDebug && \
+
   make && \
   make DESTDIR=/tmp/znc install
 
+
 RUN \
   echo "**** determine runtime packages ****" && \
-  scanelf --needed --nobanner /tmp/znc/usr/bin/znc \
+  scanelf --needed --nobanner /tmp/znc/usr/local/bin/znc \
     | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
     | sort -u \
     | xargs -r apk info --installed \
@@ -101,6 +99,8 @@ RUN \
 FROM ghcr.io/linuxserver/baseimage-alpine:3.19
 
 # set version label
+ARG BUILD_DATE
+ARG VERSION
 LABEL org.opencontainers.image.version="latest"
 LABEL maintainer="berkaycagir"
 
