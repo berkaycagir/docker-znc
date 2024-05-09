@@ -1,0 +1,27 @@
+name: PR
+
+on:
+  pull_request:
+    types:
+      - closed
+  workflow_dispatch: {}
+
+permissions:
+  packages: write
+
+jobs:
+  delete-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate tag name
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+        run: echo "TAG_NAME=${BRANCH_NAME/\//-}" >> $GITHUB_ENV
+      - name: Delete tag
+        uses: chipkent/action-cleanup-package@1316a66015b82d745b57acbb6c570f2bb1d108f9 # v1.0.3
+        if: ${{ env.TAG_NAME != 'main' && env.TAG_NAME != 'latest' && env.TAG_NAME != 'main-debug' && env.TAG_NAME != 'latest-debug' }}
+        continue-on-error: true
+        with:
+          package-name: docker-python-scripts
+          tag: ${{ env.TAG_NAME }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
