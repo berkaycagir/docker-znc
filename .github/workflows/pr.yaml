@@ -24,4 +24,4 @@ jobs:
         with:
           package-name: docker-python-scripts
           tag: ${{ env.TAG_NAME }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.PAT }}
