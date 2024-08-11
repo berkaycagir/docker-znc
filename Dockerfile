@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1@sha256:e87caa74dcb7d46cd820352bfea12591f3dba3ddc4285e19c7dcd13359f7cefd
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.20@sha256:d4972df6a80ac50d0b8e0410bb051d76b995b01a2555e9860873e8ed033317d6 as buildstage
+FROM ghcr.io/linuxserver/baseimage-alpine:3.20@sha256:d4972df6a80ac50d0b8e0410bb051d76b995b01a2555e9860873e8ed033317d6 AS buildstage
 ############## build stage ##############
 
 # package version
