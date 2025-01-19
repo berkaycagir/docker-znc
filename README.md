@@ -8,5 +8,4 @@ This repo/image is a fork of [linuxserver/docker-znc](https://github.com/linuxse
 
 This image has been created for my personal use and it may not suit/correspond your usage purpose, or what Linuxserver.io has provided with the actual image.
 
-<<<<<<< HEAD
 TL;DR: Provided as is, no guarantees.
