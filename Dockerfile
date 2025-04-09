@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1@sha256:93bfd3b68c109427185cd78b4779fc82b484b0b7618e36d0f104d4d801e66d25
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.20@sha256:336afc31d73d8e83bd7ded57b71e43553fe8c2f4986f4423de9a7d639d9d2620 AS buildstage
+FROM ghcr.io/linuxserver/baseimage-alpine:3.21@sha256:4a4c3b6a8e1dd333654fd194fe91ed5786f15b52431e6a5c9f020daf7a3f37c4 AS buildstage
 ############## build stage ##############
 
 # package version
@@ -96,7 +96,7 @@ RUN \
     >> /tmp/znc/packages
 ############## runtime stage ##############
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.20@sha256:336afc31d73d8e83bd7ded57b71e43553fe8c2f4986f4423de9a7d639d9d2620
+FROM ghcr.io/linuxserver/baseimage-alpine:3.21@sha256:4a4c3b6a8e1dd333654fd194fe91ed5786f15b52431e6a5c9f020daf7a3f37c4
 
 # set version label
 ARG BUILD_DATE
