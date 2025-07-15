@@ -1,7 +1,5 @@
 # [berkaycagir/docker-znc](https://github.com/berkaycagir/docker-znc)
 
-[![Deploy](https://github.com/berkaycagir/docker-znc/actions/workflows/deploy.yml/badge.svg)](https://github.com/berkaycagir/docker-znc/actions/workflows/deploy.yml)
-
 This repo/image is a fork of [linuxserver/docker-znc](https://github.com/linuxserver/docker-znc) that enables debugging via an env variable. All the usage and features are the same.
 
 ## Disclaimer
