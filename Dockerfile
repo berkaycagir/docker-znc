@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1@sha256:93bfd3b68c109427185cd78b4779fc82b484b0b7618e36d0f104d4d801e66d25
+# syntax=docker/dockerfile:1@sha256:38387523653efa0039f8e1c89bb74a30504e76ee9f565e25c9a09841f9427b05
 
 FROM ghcr.io/linuxserver/baseimage-alpine:3.22@sha256:b09cfa96e534a8491c4feeb2a84c7cbb45237141568645f1e5a081fce5970b75 AS buildstage
 ############## build stage ##############
